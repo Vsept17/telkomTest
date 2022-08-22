@@ -27,7 +27,7 @@ const InputUsername = ({ setShowList }) => {
     <div className="w-full flex flex-row bg-gray-600 items-center justify-center gap-5 py-5">
       <img className="w-14" src={github} alt="image" />
       <input
-        placeholder="Input your username github"
+        placeholder="Input username github"
         className="border-2 border-blue-400 rounded-lg focus:outline-none p-2"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
@@ -39,7 +39,7 @@ const InputUsername = ({ setShowList }) => {
           submitUser();
         }}
       >
-        VIEW YOUR ACCOUNT
+        View User Github
       </button>
     </div>
   );

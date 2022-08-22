@@ -29,9 +29,10 @@ const ListProfile = ({ setShowList }) => {
         />
         <p className="font-bold text-2xl">{stateGlobal.name}</p>
         <p className="text-lg">{stateGlobal.location}</p>
+        <button className="w-full bg-green-400 my-5 rounded-lg py-2" onClick={() => getListRepository()}>Lihat Repository</button>
+
       </div>
       <div className="w-9/12">
-        <button onClick={() => getListRepository()}>Lihat Repository</button>
         <ListReposistory/>
       </div>
       {/* <button onClick={() => setShowList(false)}>CLose</button> */}
