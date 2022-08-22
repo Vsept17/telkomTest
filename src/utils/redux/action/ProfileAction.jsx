@@ -6,3 +6,16 @@ export const setProfileData = (payload) => {
         payload,
     }
 }
+
+export const setRepoData = (payload) => {
+    return {
+        type: actions.GET_REPO,
+        payload,
+    }
+}
+export const clearRepoData = (payload) => {
+    return {
+        type: actions.CLEAR_REPO,
+        payload,
+    }
+}

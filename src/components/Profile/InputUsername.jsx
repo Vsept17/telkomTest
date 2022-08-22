@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { getUserData } from "../../utils/ApiData";
 import { useDispatch } from "react-redux";
-import { setProfileData } from "../../utils/redux/action";
+import { setProfileData, clearRepoData } from "../../utils/redux/action";
+import github from "../../assets/github.png";
 
-const InputUsername = ({setShowList}) => {
+const InputUsername = ({ setShowList }) => {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState([]);
-  
+
   const dispatch = useDispatch();
 
   const submitUser = () => {
     getUserData(username)
       .then((res) => {
         setUserData(res);
-        dispatch(setProfileData({name: res.login}));
-        setShowList(true)
+        dispatch(setProfileData(res));
+        dispatch(clearRepoData([]));
+        setShowList(true);
       })
       .catch((err) => {
         console.log(err);
@@ -22,24 +24,23 @@ const InputUsername = ({setShowList}) => {
   };
   console.log(userData);
   return (
-    <div>
-      <div className="w-full flex flex-row gap-5">
-        <input
-          placeholder="Input your username"
-          className="outline-1 border-blue-400"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+    <div className="w-full flex flex-row bg-gray-600 items-center justify-center gap-5 py-5">
+      <img className="w-14" src={github} alt="image" />
+      <input
+        placeholder="Input your username github"
+        className="border-2 border-blue-400 rounded-lg focus:outline-none p-2"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
 
-        <button
-          className="bg-green-500 p-2 rounded-lg"
-          onClick={() => {
-            submitUser();
-          }}
-        >
-          VIEW YOUR ACCOUNT
-        </button>
-      </div>
+      <button
+        className="bg-green-500 p-2 rounded-lg"
+        onClick={() => {
+          submitUser();
+        }}
+      >
+        VIEW YOUR ACCOUNT
+      </button>
     </div>
   );
 };
