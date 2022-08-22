@@ -1,13 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const ListProfile = () => {
+  // const stateGloabal = useSelector((state) => state.ProfileReducer.data)
   return (
     <div>
-      <div>
-        <ul>
-          <li></li>
-        </ul>
-      </div>
+      {/* {stateGloabal} */}
     </div>
   );
 };

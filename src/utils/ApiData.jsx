@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let BASE_URL = import.meta.env.VITE_API;
+let BASE_URL = import.meta.env.VITE_API_URL;
 
 export const getUserData = async (username) => {
     const url = `${BASE_URL}${username}`;
