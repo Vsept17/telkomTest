@@ -3,7 +3,7 @@ import { getUserData } from "../../utils/ApiData";
 import { useDispatch } from "react-redux";
 import { setProfileData } from "../../utils/redux/action";
 
-const InputUsername = () => {
+const InputUsername = ({setShowList}) => {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState([]);
   
@@ -13,7 +13,8 @@ const InputUsername = () => {
     getUserData(username)
       .then((res) => {
         setUserData(res);
-        dispatch(setProfileData({res}));
+        dispatch(setProfileData({name: res.login}));
+        setShowList(true)
       })
       .catch((err) => {
         console.log(err);

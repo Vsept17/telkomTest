@@ -1,16 +1,20 @@
 import * as actions from "../action/ActionTypes";
 
 const initialState = {
-  data: [],
+  data: ["test"],
 };
 
-export default (state = initialState, action) => {
-    console.log(action);
-  switch (action.type) {
-    case action.type === actions.GET_PROFILE:
-      return { ...state, data: action.payload };
+console.log("data redux", initialState);
 
-    default:
-      return state;
+const ProfileReducer = (state = initialState, action) => {
+  if (action.type === actions.GET_PROFILE) {
+    return { ...state, data: action.payload };
   }
+  //   console.log(action);
+  //   switch (action.type) {
+  //     case action.type === actions.GET_PROFILE:
+  //     default:
+  return state;
+  //   }
 };
+export default ProfileReducer;
