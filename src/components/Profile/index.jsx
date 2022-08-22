@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import InputUsername from "./InputUsername";
+import ListProfile from "./ListProfile";
 
 const Profile = () => {
-  return (
-    <div>Profile</div>
-  )
-}
+  return <div>
+    <InputUsername />
+  </div>;
+};
 
-export default Profile
+export default Profile;
